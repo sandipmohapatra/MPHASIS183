@@ -1,0 +1,280 @@
+Sql :- structure query language
+----------------------------------------------
+Data types:-
+----------------------
+1)number :- size 38 digits ->number,number(5),number(6,2)--->floating values(9999.99)
+2)character :- size 2000 bytes -->char(20)
+3)varchar2:- size 4000 bytes -->varchar2(15)
+4)date :- 7 bytes -->'2-jan-2021'
+5)long :- 2 GB
+6)raw :- store binary data ,size is 2000 bytes
+7)long raw :- 2GB
+8)lob :- 4GB
+
+-------------------------------------------------
+1)Arithmatic operator:-  
++ , -,*,/
+-----------------------------------------------
+2)comparison operator :- =,>=,<= ,>,<,!=(not equal to)
+-----------------------------------------------------------
+3)between and, not between ,in,not in,like 
+-----------------------------------------------------------------
+syntax for creating table 
+-------------------------------------
+create table <table name>(<colum name> datatype,<colum name> datatype,
+<colum name> datatype);
+
+example:- create table sstudent(rollno number,name varchar2(20),phno number);
+------------------------------------------------------------------------------
+syntax for inserting data into the table 
+-------------------------------------------------------
+
+insert into <table name> values (data1,data2,data3);
+
+* characters should be in single code
+
+example:- insert into sstudent values('sunil',3,775665);
+-------------------------------------OR--------------------------------
+insert into <table name><column names> values (data1,data2,data3);
+
+* characters should be in single code
+
+example:- insert into sstudent(name,rollno,phno) values('sunil',3,775665);  //in this we can charge the order of the table.
+------------------------------------------------------------------------------------
+alter table <table name> add (<column name> <data  type>,<column name> <data  type>)
+
+example :- alter table sstudent add(phy number,chem number,bio number,total number,avg number,grade char(10));
+
+-------------------------------------------------------------
+alter table <table name> drop column (<column name> ,<column name> )
+
+example :- alter table sstudent drop column grade;
+--------------------------------------------------------------------------------------
+alter table <table name> rename column <old column name> to <new column name> 
+
+example :- alter table sstudent rename column avg to average;
+--------------------------------------------------------------------------------------------
+alter table <table name> rename to <new table name> 
+
+example:- alter table sstudent rename to studstuet;
+
+--------------------------------------------------------------------------------------
+update <table name> set <column data =?,column data =?,column data =?>  where <column data=?>
+
+example:- update sstudent set phy=27,chem=28,bio=48 where rollno=3;
+
+----------------------------------------------------------------------------------------------------
+operations
+----------------------
+1)TL (Transaction language) :- select
+
+2)DML (data manipulation language) :- insert ,update,delete
+They are temporary.if we rollback it will come to the previous state.
+
+3)DCL (data control language):- grant,revoke
+
+4)DDL (data defination language):- create,alter,drop
+
+5)TCL (Transaction control language)  :- commit,rollback ,savepoint. 
+
+--------------------------------------------------------------------------------------------------
+
+delete :- it will delete according to your requirement.(it will display all the data except the deleted data)
+
+delete <table name>;//all the records will be deleted at a time.
+
+you can use a where clause.
+
+rollback is applicable.
+-----------------------------------------------------------------
+
+truncate :- delete all the rows at a time.if u fire the select query then (NO DATA FOUND)
+
+we cannot use where clause.
+
+rollback is not applicable.
+-------------------------------------------------------------------
+select * from studstuet order by name asc;
+
+select * from studstuet order by name desc;
+-----------------------------------------------------------------------------
+constraints 
+------------------
+1)primary key :- if we declare a column as primary key you cannot enter duplicate values or you cannot keep the column value empty.(primary key = unique key + not null)
+
+2)unique key :- if we declare a column as unique we cannot enter duplicate values.
+
+3)not null :- if we declare a column as not null we cannot keep the column value empty.
+
+4)check :- we can limit a value to a column. (example salary should be greater than 15000.)
+
+5)foreign key :- you can link a table column with another table column which is having primary key.
+
+----------------------------------------------------------------------------------------------
+Join is used to join 2 or more tables 
+
+inner join / equi join
+----------------------------------
+select a.empid,a.name,a.email,a.salary,b.address,b.dept from mphasisemp a,empdetails b where a.empid=b.empid;
+
+ a is the allias name for mphasisemp;
+
+b is the allias name for empdetails;
+
+--------------------------------------------------------------------------------------
+composite key :- it is used to make more than one column as primary key.
+
+create table mphasisstud 
+(empid number not null,
+name varchar2(20) not null,
+address varchar2(20),
+primary key(empid,name),
+unique (empid,address));
+
+
+insert into mphasisstud values(102,'sandip','hyd');
+select * from mphasisstud;
+-------------------------------------------------------------------
+Alternate key :- it is also called as secondary key
+
+example :- Mphasisemp table contain empid,name ,address where empid is PK and the remaining columns are known as alternate key.
+
+-----------------------------------------------------------------------
+
+Date Function
+------------------------
+it is stored as a number in the database and it can be added or subtracted from a date the numbers.
+
+-------------------------------
+sql functions 
+-------------------
+These are known as aggregate function.
+It will be applicable for a column.
+----------------------------------------------------------
+group by
+--------------------
+select count(empid),dept from mphasisemp group by dept; 
+-----------------------------------------------------------------
+select min(salary),dept from mphasisemp group by dept; 
+-------------------------------------------------------------
+having clause is used in place of where clause in group by function.
+-----------------------------------------------------------------------------------------------------
+
+select dept from mphasisemp group by dept having min(salary)>=23000; 
+
+
+------------------------------------------------------------------------------------------------------------
+https://github.com/sandipmohapatra/MPHASIS183
+
+-------------------------------------------------------------------
+Assignment-1
+--------------------------
+1)create table employee 
+empid(PK) ,name not null,salary,DOJ date ---   '1-jan-2021'
+insert 5 rows
+---------------------------------------------------------------------
+2)create table details
+empid(FK),Loc,dept
+insert 5 rows
+----------------------------------------------------------------------------
+3)join 2 tables and display all the records
+------------------------------------------------------------
+4)display how many employees are working in a single dept
+----------------------------------------------------------------
+5)add a column department to employee and display the highest salary of each 
+department.
+-----------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
