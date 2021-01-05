@@ -208,6 +208,60 @@ select trim(' Hello studentsH ') from dual;//delete the header and tailer spaces
 
 
 ------------------------------------------------------------------------------------------------
+arithmatic functions
+----------------------------------
+select round(45.6645656,2)from dual;//if 3rd place is >= to 5 then 1 will be added to the 2nd place
+
+select trunc(45.66775656,2)from dual;//it will cut after 2 places of decimal
+
+select mod(15,2)from dual; //remender
+
+select abs(-2)from dual;//display the positive value only
+
+select floor(45.66)from dual;//round up to lower value
+
+select ceil(45.46)from dual;//round up to higher value
+
+select cos(0) from dual;
+
+select tan(0) from dual;
+
+--------------------------------------------------------------------------------------------
+subquery:- we will have query inside a query
+
+select all the employees who get salary more than Ankit
+-----------------------------------------------------------------
+
+select name,empid,salary from mphasisemp where salary > (select salary from mphasisemp where name='Ankit');
+
+select * from mphasisemp where salary > (select salary from mphasisemp where name='Ankit');
+
+--------------------------------------------------------------------
+creating clone table :-
+
+create table mphasisemp1 as (select * from mphasisemp);
+
+select * from mphasisemp;
+
+select * from mphasisemp1;
+--------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
