@@ -346,23 +346,42 @@ connect--->conn system/1234
 
 create user---> create user ankit identified by mphasis;
 
-grant permission ---> grant dba to ankit
+grant permission ---> grant dba to ankit;   (give permission)
 
 connect ---> conn ankit/mphasis
 
 select * from system.mphasisemp;
 -------------------------------------------------
 revoke
-
 connect--->conn system/1234
-
-revoke ---> revoke dba from ankit;
+revoke ---> revoke dba from ankit;(take away the permission)
+----------------------------------------------------
+drop user ankit;
+drop user ankit cascade;
+*if data is there you have to use cascade (forcefully) to drop the user;
 
 -------------------------------------------------------------------------------- 
+sequence :-  A sequence is a database object that is used to generate unique integers.
 
+example :- Bank accno,rollno ,slno it is auto generated .
 
+example:- create sequence seq1 increment by 1 start with 1;
 
+syntax:- create sequence <sequence name> increment by <integer> start with <integer>
 
+create sequence seq1 increment by 1 start with 1;
+
+create table mphasisstuds(empid number,name varchar2(30),address varchar2(30));
+
+insert into mphasisstuds(empid,name,address) values(seq1.nextval,'delip','Bangalore');
+
+select * from mphasisstuds; 
+1)seq1.nextval
+2)seq1.currval
+select seq1.currval from dual;
+select seq1.nextval from dual;
+
+----------------------------------------------------------------------------------------------------------------------
 
 
 
