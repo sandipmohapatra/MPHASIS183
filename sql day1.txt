@@ -184,7 +184,30 @@ insert 5 rows
 5)add a column department to employee and display the highest salary of each 
 department.
 -----------------------------------------------------------------------------------
+string functions
+-----------------------
+select concat('hello ',' students') from dual;//combining 2 strings
 
+select substr('Hello students',1,5) from dual;//part of a string
+
+select length('Hello students') from dual;//no of characters of a string
+
+select instr('Hello students','s') from dual;//first occurance of s
+
+select lpad('Hello students',20,'*') from dual;//20-14=6 stars will be added to the left side of the string
+
+select rpad('Hello students',20,'*') from dual;//20-14=6 stars will be added to the right side of the string
+
+select trim('H' from 'Hello students') from dual;
+
+select trim('H' from 'Hello studentsH') from dual;//it will cut H from both sides.
+
+*Trim is use to cut space from both sides.
+
+select trim(' Hello studentsH ') from dual;//delete the header and tailer spaces.
+
+
+------------------------------------------------------------------------------------------------
 
 
 
