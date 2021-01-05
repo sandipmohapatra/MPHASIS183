@@ -263,6 +263,82 @@ find the 3rd highest salary from mphasisemp1 table
 select * from mphasisemp1 where salary=(select salary from (select distinct salary from mphasisemp1 order by salary desc)where rownum<=3
 minus
 select salary from (select distinct salary from mphasisemp1 order by salary desc)where rownum<=2);
+-----------------------------------------
+distinct:- it will display the unique values only.
+-------------
+select distinct salary from mphasisemp1 order by salary desc;
+---------------------------------
+rownum :- it is sudo column created by oracle .it displays the row count.
+--------------------------------------------------------------------------------------------------------
+view 
+----------
+A view is a logical table based on a table or another view.
+
+if we delete/insert/update a data from the view it will reflect the base table.
+
+the main purpose of view is to store bigger query.The view actually stores query and does not accupies any memory space.
+
+view can be used to make simple queries to retrive the result of complicated queries.
+
+one view can be used to retrive data from several tables (join).
+
+we can create a view on another view.
+
+if you drop the base table or base view the corrosponding view will be automatically deleted.
+
+view created on a single table is called simple view we can do DML operations.
+
+view created on a multiple tables is called complex view we cannot  do DML operations.
+
+-----------------------------------------------------------------------------------
+
+
+*
+In clone table the tables are separate if we do delete/insert/update to one table it will not reflect to the other table.
+
+
+
+
+
+
+
+------------------------------------------rownum---------------------------------------- 
+rownum is a pseudocolumn
+===========================
+select * from mphasisemp where rownum <2;
+select * from mphasisemp where rownum <=2;
+select * from mphasisemp where rownum = 1;
+----------------------------------------------------------------------
+no data found
+------------------------
+select * from mphasisemp where rownum > 1;
+select * from mphasisemp where rownum = 2;
+select * from mphasisemp where rownum >=1;
+--------------------------------------------------------------------------------
+alter table mphasisemp add slno number;
+
+update mphasisemp set slno=rownum;
+
+select * from mphasisemp;
+----------------------------------------------------------------------
+
+ORA-02292: integrity constraint (SYSTEM.SYS_C004801) violated - child record found
+
+select * from empdetails;//child table
+
+select * from mphasisemp;//parent table
+
+it is not allowing parent table data to delete.because the data which is present in the parent table (PK) can only be used in the child table (FK).
+you have to delete the child table data first then you can delete the parent table data.
+you cannot make the data orphane.
+
+
+
+
+
+
+
+
 
 
 
