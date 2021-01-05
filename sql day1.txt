@@ -245,6 +245,25 @@ select * from mphasisemp;
 
 select * from mphasisemp1;
 --------------------------------------------------------------------------
+select * from mphasisemp1 minus select * from mphasisemp;//show the difference
+
+select * from mphasisemp1 intersect select * from mphasisemp;//show the common rows
+
+select * from mphasisemp1 union select * from mphasisemp;//all the values
+
+select * from mphasisemp1 union all select * from mphasisemp;//all the records from both the tables will be displayed
+-------------------------------------------------------------------------------------------------
+find the 2nd highest salary from mphasisemp1 table
+--------------------------------------------------------
+
+select max(salary) from mphasisemp1 where salary<(select max(salary) from mphasisemp1);
+
+find the 3rd highest salary from mphasisemp1 table
+--------------------------------------------------------
+select * from mphasisemp1 where salary=(select salary from (select distinct salary from mphasisemp1 order by salary desc)where rownum<=3
+minus
+select salary from (select distinct salary from mphasisemp1 order by salary desc)where rownum<=2);
+
 
 
 
