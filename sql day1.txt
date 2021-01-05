@@ -291,17 +291,8 @@ view created on a single table is called simple view we can do DML operations.
 view created on a multiple tables is called complex view we cannot  do DML operations.
 
 -----------------------------------------------------------------------------------
-
-
 *
 In clone table the tables are separate if we do delete/insert/update to one table it will not reflect to the other table.
-
-
-
-
-
-
-
 ------------------------------------------rownum---------------------------------------- 
 rownum is a pseudocolumn
 ===========================
@@ -331,6 +322,38 @@ select * from mphasisemp;//parent table
 it is not allowing parent table data to delete.because the data which is present in the parent table (PK) can only be used in the child table (FK).
 you have to delete the child table data first then you can delete the parent table data.
 you cannot make the data orphane.
+----------------------------------------------------------------------------------
+Index:- It is used to retrive data from a table faster during search operation.
+
+If the data is sorted then the retrival will be faster.Other wise full table scan will happen.
+
+In case of dicinary if words are not arranged in alfabatic order we have search the whole dicinary .
+
+we have 2 types of index.
+1)unique index:- when we define a column with primary key or unique key constraint oracle will automatically create a index on the column .Internally it will sort the data and key so retrival will be faster.
+
+2)non unique index:- if you donot define a column as PK or unique key then we have to create a index on the table explicitly.
+
+example :- foriegn key column are not index.
+
+create index xyz1 on mphasisemp(name);
+
+if we create index on primary key column the we get error :- ORA-01408: such column list already indexed
+
+-------------------------------------------------------------------------   
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
