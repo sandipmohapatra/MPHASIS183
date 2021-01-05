@@ -341,7 +341,24 @@ create index xyz1 on mphasisemp(name);
 if we create index on primary key column the we get error :- ORA-01408: such column list already indexed
 
 -------------------------------------------------------------------------   
+creating users :-
+connect--->conn system/1234
 
+create user---> create user ankit identified by mphasis;
+
+grant permission ---> grant dba to ankit
+
+connect ---> conn ankit/mphasis
+
+select * from system.mphasisemp;
+-------------------------------------------------
+revoke
+
+connect--->conn system/1234
+
+revoke ---> revoke dba from ankit;
+
+-------------------------------------------------------------------------------- 
 
 
 
