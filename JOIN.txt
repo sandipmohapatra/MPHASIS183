@@ -57,7 +57,11 @@ select
 mphasisemp.empid,mphasisemp.name,mphasisemp.email,empdetails.address,empdetails.dept from mphasisemp RIGHT JOIN empdetails  ON 
 mphasisemp.empid=empdetails.empid ORDER BY mphasisemp.name;
 ---------------------------------------------------------------------------
-
+select 
+mphasisemp.empid,mphasisemp.name,mphasisemp.email,empdetails.address,empdetails.dept from mphasisemp FULL OUTER JOIN empdetails  ON 
+mphasisemp.empid=empdetails.empid;
+//return all records from both left and right tables.
+-------------------------------------------------------------------------------
 
 
 
