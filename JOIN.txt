@@ -62,7 +62,20 @@ mphasisemp.empid,mphasisemp.name,mphasisemp.email,empdetails.address,empdetails.
 mphasisemp.empid=empdetails.empid;
 //return all records from both left and right tables.
 -------------------------------------------------------------------------------
+non-equi Join :- In this no columns are common.
+------------------------------------------------------
+employee ---empno,name,salary
+job--- job,low_salary,high_salary
+---------------------------------------------
+create table memployee(empno number,name varchar2(30),salary number);
+create table mjob(job varchar2(30),low_salary number,high_salary number);
+insert into memployee values(103,'amit',30000);
 
+select * from memployee;
+insert into mjob values('TL',22000,31000);
+select * from mjob;
+select a.empno,a.name,a.salary,b.job from memployee a,mjob b where a.salary between b.low_salary and b.high_salary; 
+------------------------------------------------
 
 
 
