@@ -1,0 +1,67 @@
+joins
+---------
+it is mainly used to join two or more tables or view together.
+------------------------
+we have different types of joins
+-----------------------
+1)inner join or equi-join :- returns records that have matching values in both tables.
+2)Outer join
+i)left outer
+ii)right outer
+iii)full outer
+3)non-equi join
+4)self join.
+----------------------------------
+select * from mphasisemp;
+select * from empdetails;
+
+inner /equi join.
+--------------------------
+select a.empid,a.name,a.email,a.salary,a.dept,a.slno,b.address,b.dept from mphasisemp a,empdetails b where a.empid=b.empid;
+-----------------------------OR--------------------------
+select 
+
+mphasisemp.empid,mphasisemp.name,mphasisemp.email,mphasisemp.salary,mphasisemp.dept,mphasisemp.slno,empd
+
+etails.address,empdetails.dept from mphasisemp INNER JOIN empdetails  ON 
+
+mphasisemp.empid=empdetails.empid;
+
+------------------------------------------------------------------------------
+outer join(left outer join)
+----------------------------------
+select a.empid,a.name,a.email,a.salary,a.dept,a.slno,b.address,b.dept from mphasisemp a,empdetails b where a.empid=b.empid(+);
+*to see the difference between the left hand side bigger table where values whose empid didnt match
+---------------------------------------
+select 
+mphasisemp.empid,mphasisemp.name,mphasisemp.email,empdetails.address,empdetails.dept from mphasisemp LEFT JOIN empdetails  ON 
+mphasisemp.empid=empdetails.empid ORDER BY mphasisemp.name;
+---------------------------------------------------------------------------
+
+
+select * from empdetails;
+drop table empdetails;
+
+create table empdetails(empid number,address varchar2(20),dept number);
+
+insert into empdetails values(112,'hyd',20);
+select * from empdetails;
+
+--------------------------------------------
+outer join(right outer join)
+----------------------------------
+select a.empid,a.name,a.email,a.salary,a.dept,a.slno,b.address,b.dept from mphasisemp a,empdetails b where a.empid(+)=b.empid;
+*to see the difference between the right hand side bigger table where values whose empid didnt match
+---------------------------------------
+select 
+mphasisemp.empid,mphasisemp.name,mphasisemp.email,empdetails.address,empdetails.dept from mphasisemp RIGHT JOIN empdetails  ON 
+mphasisemp.empid=empdetails.empid ORDER BY mphasisemp.name;
+---------------------------------------------------------------------------
+
+
+
+
+
+
+
+
