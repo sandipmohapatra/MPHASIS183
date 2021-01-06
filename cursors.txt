@@ -88,3 +88,18 @@ END;
 
 rename a column in oracle:-
 alter table sales rename column order_date to date_of_order;
+--------------------------------------------------------------------------------
+declare
+cursor c is select salary,name from mphasisemp;
+n varchar2(20);
+x varchar2(20);
+begin
+open c;
+loop
+fetch c into n,x;
+exit when c %notfound;
+dbms_output.put_line(c %rowcount ||'  '||n);
+dbms_output.put_line(c %rowcount ||'  '||x);
+end loop;
+end;
+-------------------------------------------
