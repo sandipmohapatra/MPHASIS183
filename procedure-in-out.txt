@@ -178,3 +178,72 @@ BEGIN
 END; 
 /      
 -------------------------------------------------------------------------------------------
+//wap to enter 2 nos and find there sum(a in number,b in number,c out number)
+using procedure .
+DECLARE 
+   x number; 
+   y number; 
+   z number;
+PROCEDURE sum(x IN number, y IN number, z OUT number) IS 
+BEGIN
+z:=x+y;
+END;   
+BEGIN 
+   x:= 23; 
+   y:= 45; 
+   sum(x, y, z); 
+   dbms_output.put_line(' sum of (23, 45) : ' || z); 
+END; 
+----------------------------------------------------------------------------------
+
+#1 wap to enter a string and find it's length using procedure.
+
+create or replace procedure strlen(a in varchar2,l out number) is
+begin
+l:=length(a);
+dbms_output.put_line(l);
+end;
+---------------------------------
+declare
+x varchar2(30);
+y number;
+begin
+x:=:x;
+strlen(x,y);
+end;
+------------------------------------------------------------
+select empid,upper(name) as UppercaseName from mphasisemp;
+
+select empid,lower(name) as UppercaseName from mphasisemp;
+
+select upper('hello students') as UppercaseName from dual;
+
+#2 wap to enter a string and display it's upper case character using procedure.
+
+create or replace procedure UC(x IN varchar2, y OUT varchar2) is
+BEGIN
+y:=upper(x);
+END;
+---------------------------------
+DECLARE 
+a varchar2(20); 
+b varchar2(20); 
+BEGIN 
+a:=:a;
+UC(a,b);
+dbms_output.put_line('The String in Upper is: '||b); 
+END; 
+--------------------------------------------------------------------------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
