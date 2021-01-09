@@ -6,7 +6,7 @@
 <body bgcolor=cyan>
 <form action=registration>
 <h2><center>MPHASIS STUDENT REGISTRATION PAGE</center></h2><hr color=red><hr color=blue>
-<table border=2>
+<center><table border=2>
 <tr><td>Enter your name<td><input type=text name=t1 size=20 required></tr>
 <tr><td>Enter your Username<td><input type=text name=t2 size=20 required></tr>
 <tr><td>Enter your Password<td><input type=password name=t3 size=20 required></tr>
@@ -15,8 +15,8 @@
 <tr><td>Enter Time<td><input type=time name=t6 size=20 required></tr>
 
 <tr><td>Enter your Gender<td>
-<input type=radio name=t7 value=male>Male
-<input type=radio name=t7 value=female>Female
+<input type=radio name=t7 value=male required>Male
+<input type=radio name=t7 value=female required>Female
 </tr>
 
 <tr><td>Enter your Hobby<td>
@@ -25,6 +25,13 @@
 <input type=checkbox name=t8 value=football>FootBall
 </tr>
 
+<tr><td><audio src="abc.mp3" controls="autoplay"></audio>
+<td><audio src="def.mp3" controls="autoplay"></audio></tr>
+
+<tr><td><img src="img.jpg" alt="image is not available" height="200" width="300"><td>
+<video src="xyz.mp4" controls="loop" height="200" width="300" autostart="on"></video>
+
+</tr>
 
 <tr><td><td><input type=submit value="Please click"></tr>
 </table></form></html>
