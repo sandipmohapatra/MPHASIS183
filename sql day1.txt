@@ -611,9 +611,51 @@ select min(DOB) from mphasisemp;
 select max(DOB) from mphasisemp;
 
 -------------------------------------------
+SQL> insert into mphasisemp1 values(107,'hari','hari@gmail.com',34000,20);
+
+1 row created.
+
+SQL> savepoint a1;
+
+Savepoint created.
 
 
+SQL> insert into mphasisemp1 values(107,'amit','amit@gmail.com',34000,20);
 
+1 row created.
+
+SQL> savepoint a2;
+
+Savepoint created.
+
+SQL> insert into mphasisemp1 values(108,'kiran','kiran@gmail.com',34000,20);
+
+1 row created.
+
+SQL> savepoint a3;
+
+Savepoint created.
+--------------------------------------
+SQL> rollback to a2;
+------------------------------------------------------------------------
+SQL Self JOIN
+--------------------------
+A self JOIN is a regular join, but the table is joined with itself.
+------------------------------------------------------------------------
+select * from customer;
+
+create table customer (CustomerID number,CustomerName varchar2(30),ContactName varchar2(30),	
+Address	varchar2(30),City varchar2(30),PostalCode number,Country varchar2(30));
+
+insert into customer values(106,'Anusha V','Anusha','MG Road','Bangalore',080,'India');
+
+SELECT A.CustomerName AS CustomerName1, B.CustomerName AS CustomerName2, A.City
+FROM Customer A, Customer B
+WHERE A.CustomerID <> B.CustomerID
+AND A.City = B.City
+ORDER BY A.City;
+
+------------------------------------
 
 
 
