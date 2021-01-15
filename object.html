@@ -1,0 +1,61 @@
+<!-- 
+Java script is an object-based language.
+Every thing is an object in javascript.
+-------------------------------------------------------------
+we can declare an object by 
+1)object literal
+syntax:-
+object={property1:value1,property2:value2,property3:value3,property4:value4}
+----------------------------------------------------------------------------------
+example:- 
+<html>
+<body>
+<script>
+emp={id:101,name:"sandip",address:"bangalore"}
+emp1={id:102,name:"Nitish",address:"bangalore"}
+emp2={id:103,name:"Ankit",address:"bangalore"}
+document.write(emp.id+"  "+emp.name+"  "+emp.address);
+document.write("<br>");
+document.write(emp1.id+"  "+emp1.name+"  "+emp1.address);
+document.write("<br>");
+document.write(emp2.id+"  "+emp2.name+"  "+emp2.address);
+</script></body></html>
+-------------------------------------------------------------------------------------
+2)creating instance of Object directly using new keyword.
+syntax:-
+var objectname=new Object();
+----------------------------------------------------
+example :- 
+<html>
+<body>
+<script>
+var emp=new Object();
+emp.id=101;
+emp.name="sandip";
+emp.address="hyderabad";
+document.write(emp.id+"  "+emp.name+"  "+emp.address);
+document.write("<br>");
+var emp1=new Object();
+emp1.id=102;
+emp1.name="Ankit";
+emp1.address="hyderabad";
+document.write(emp1.id+"  "+emp1.name+"  "+emp1.address);
+document.write("<br>");
+</script></body></html>
+--------------------------------------------------------------------
+3)Using an Object constructor -->
+<html><body><script>
+function emp(id,name,address)
+{
+this.id=id;
+this.name=name;
+this.address=address;
+}
+x=new emp(101,"sandip","hyderabad");
+y=new emp(102,"Ankit","hyd");
+document.write(x.id+"  "+x.name+"  "+x.address);
+document.write("<br>");
+document.write(y.id+"  "+y.name+"  "+y.address);
+</script></body></html>
+
+----------------------------------------------------------------------------
