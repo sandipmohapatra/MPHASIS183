@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html><head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$(document).ready(function()
+{
+$("button.get-name").click(function()
+{ var name=$("#name").val();
+alert(name);});
+
+$("button.get-comment").click(function()
+{ var comment=$("#comment").val();
+alert(comment);});
+
+$("button.get-remark").click(function()
+{ var remark=$("#remark").val();
+alert(remark);});
+});
+</script>
+</head>
+<form>
+<table>
+<tr><td>Enter your name:<td><input type=text id="name"></tr>
+<tr><td>Enter your comment:<td><textarea rows=4 cols=40 id="comment"></textarea></tr>
+<tr><td>Enter your remark:<td><select id="remark">
+<option>Good</option>
+<option>Very Good</option>
+<option>Bad</option>
+<option>Very Bad</option>
+</select></tr>
+<tr><td><td><button type="button" class="get-name">Get Name</button>
+<button type="button" class="get-comment">Get Comment</button>
+<button type="button" class="get-remark">Get Remark</button></tr>
+</table>
+</form>
+</html>
+
+
